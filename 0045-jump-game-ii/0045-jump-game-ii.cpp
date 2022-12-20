@@ -7,9 +7,11 @@ public:
         for(int i = 0; i<nums.size()-1; i++){
             
             place = max(place,i+nums[i]);
-            // if(place >= nums.size()-1) return count;
+            
+            //if i which meet to the end point than place value 
+            //which is the farthest point to move the end point 
+            //therfore we going to minimum steps to move 
             if(i == end){
-                // place = i+nums[i];
                 end = place;
                 count++;
             }
