@@ -10,7 +10,7 @@ public:
                 dfs(gr,visited,adj);
         }
     }
-    bool canVisitAllRooms(vector<vector<int>>& rooms) {
+    bool canVisitAllRooms(vvi& rooms) {
         
         int n = rooms.size();
         vvi gr(n);
