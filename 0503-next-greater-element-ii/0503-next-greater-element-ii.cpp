@@ -6,6 +6,7 @@ public:
         stack<int>s;
         vector<int>next(n,-1);
         
+        //here main thing to circular move until that its index not repet
         for(int i = 0; i< 2 * n; i++){
             
             int num = nums[i%n];
