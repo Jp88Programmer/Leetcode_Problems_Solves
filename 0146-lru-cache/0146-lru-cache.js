@@ -34,6 +34,8 @@ LRUCache.prototype.put = function(key, value) {
     
     this.cache.set(key,value);
     
+    //here using recent key next method 
+    //to solve the problem very easy 
     if(this.cache.size > this.capacity){
         this.cache.delete(this.cache.keys().next().value);
     }
