@@ -34,7 +34,6 @@ public:
     }
     
     */
-    
     void dfs(int root,int parent = -1){
         
         for(auto u : gr[root]){
@@ -74,7 +73,6 @@ So,
     }
     
     */
-    
     void dfs1(int i,int n,int p=-1){
         
         for(auto u : gr[i]){
@@ -93,10 +91,12 @@ So,
             gr[e[0]].push_back(e[1]);
             gr[e[1]].push_back(e[0]);
         }
+        //calculate path from root 
         dfs(0);
+        
+        //re-shifthing root apply 
         dfs1(0,n);
         
         return res;
-        
     }
 };
