@@ -2,6 +2,7 @@
 #define vii vector<vector<int>>
 class Solution {
 public:
+    //Recursion with memerozation 
     int f(int id,int buy,vi &p,vii &dp){
         
         if(id >= p.size()) return 0;
@@ -19,6 +20,7 @@ public:
         int n = p.size();
         vii dp(n+2,vi(2,0));
         
+        //Tabulation Method 
         for(int i=n-1; i>=0; i--){
             
             for(int buy = 0; buy<=1; buy++){
