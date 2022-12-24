@@ -40,10 +40,15 @@ public:
             
             if(u == parent) continue;
             dfs(u,root);
+            
+            //to count the current node edge to the root
             count[root] += count[u];
+            
+            //the distance between root to current node 
             res[root] += res[u] + count[u];
         }
         
+        //add up with edge 
         count[root] += 1;
     }
     
@@ -77,6 +82,8 @@ So,
         
         for(auto u : gr[i]){
             if(u == p) continue;
+            
+            //we reshifting the root with current node 
             res[u] = res[i] - count[u] + n - count[u];
             dfs1(u,n,i);
         }
