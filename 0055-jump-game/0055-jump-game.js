@@ -12,5 +12,6 @@ var canJump = function(nums) {
         reach = Math.max(reach,i+nums[i]);
     }
     
+    console.log(reach);
     return i === nums.length;
 };
