@@ -4,10 +4,9 @@
  */
 var eraseOverlapIntervals = function(intervals) {
     
+    //sort the arry and count the overlap element 
     intervals.sort((a,b)=> a[1] - b[1]);
-    
-    console.log(intervals);
-    
+    // console.log(intervals);
     let pre = 0,count = 0;
     for(let i = 1; i < intervals.length; i++){
         
