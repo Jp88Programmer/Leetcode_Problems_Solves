@@ -5,7 +5,6 @@ public:
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
         
         //solution 1 
-        
         int n = intervals.size();
         vi start,end;
         
