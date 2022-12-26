@@ -1,30 +1,21 @@
 class Solution {
-public:
-    bool canReach(vector<int>& arr, int start) {
+    
+    public boolean dfs(int[] arr,boolean[] visited,int id){
         
-        queue<int>q;
-        q.push(start);
-        int n = arr.size();
-        vector<bool>visited(n,false);
-        while(!q.empty()){
-            
-            auto index = q.front();
-            q.pop();
-            
-            // if(index < 0 || index >= n) continue;
-            
-            visited[index] = true;
-            
-            if(arr[index] == 0) return true;
-            
-            int pre = index + arr[index];
-            int next = index - arr[index];
-            if(pre < n && !visited[pre]) q.push(pre);
-            if(next >=0 && !visited[next]) q.push(next);
-            
-            
-        }
+        if(id <0 || id >= arr.length || visited[id])  return false;
         
-        return false;
+        if(arr[id] == 0) return true;
+        visited[id] = true;
+        
+        return dfs(arr,visited,id+arr[id]) || dfs(arr,visited,id-arr[id]);
+        
+        
     }
-};
+    
+    public boolean canReach(int[] arr, int start) {
+        
+        boolean[] visited = new boolean[arr.length];
+        
+        return dfs(arr,visited,start);
+    }
+}
