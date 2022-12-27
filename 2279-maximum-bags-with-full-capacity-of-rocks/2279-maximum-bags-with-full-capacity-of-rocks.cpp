@@ -8,13 +8,13 @@ public:
     }
     int maximumBags(vector<int>& capacity, vector<int>& rocks, int additionalRocks) {
         
-        // vi diff = capacity;
-        for(int i = 0; i<capacity.size(); i++){
+        int n = capacity.size();
+        for(int i = 0; i<n; i++){
             capacity[i] = abs(capacity[i]-rocks[i]);
         }
         sort(capacity.begin(),capacity.end());
         int i ;
-        for(i = 0; i<capacity.size() && additionalRocks >= capacity[i]; i++){
+        for(i = 0; i<n && additionalRocks >= capacity[i]; i++){
             additionalRocks -= capacity[i];
         }
         
