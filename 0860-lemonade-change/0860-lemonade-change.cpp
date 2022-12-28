@@ -2,6 +2,8 @@ class Solution {
 public:
     bool lemonadeChange(vector<int>& bills) {
         
+        //step 1 solution
+        /*
         if(bills[0] != 5) return false;
         int arr[3] = {0,0,0};
         
@@ -50,6 +52,22 @@ public:
         }
         
         return true;
+        */
         
+        //step 2 solution
+        
+        int five=0,ten=0;
+        
+        for(auto b:bills)
+        {
+            if(b == 5) five++;
+            else if(b == 10) ten++,five--;
+            else if(ten>0) ten--, five--;
+            else
+                five -= 3;
+            if(five < 0) return false;
+        }
+        
+        return true;
     }
 };
