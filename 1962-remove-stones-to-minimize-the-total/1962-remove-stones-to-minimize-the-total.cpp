@@ -10,13 +10,11 @@ public:
         int sum = 0;
         int i =0;
         while(!pq.empty() && i < k){
-            auto t = pq.top();
-            auto element = t/ 2;
-            // cout << element << endl;
+            int t = pq.top();
+            int element = t/ 2;
             pq.pop();
             pq.push(t - element);
             i++;
-            // sum += element;
         }
         
         while(!pq.empty()){
