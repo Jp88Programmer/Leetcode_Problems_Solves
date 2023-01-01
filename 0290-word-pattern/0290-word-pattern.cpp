@@ -20,7 +20,8 @@ public:
     }
     bool wordPattern(string pattern, string s) {
         
-        unordered_map<char,string>m;
+        // unordered_map<char,string>m;
+        string m[26] = {""};
         unordered_map<string,char>m1;
         vector<string>arr = split(s,' ');
         for(auto i : arr) cout << i << " ";
@@ -30,12 +31,13 @@ public:
         
         for(int i = 0; i<pattern.size(); i++){
             
-            if(m.find(pattern[i]) != m.end()){
-                if(m[pattern[i]] != arr[i]){
+            // if(m.find(pattern[i]) != m.end()){
+            if(m[pattern[i]-'a'] != ""){
+                if(m[pattern[i]-'a'] != arr[i]){
                     return false;
                 }
             }else{
-                m[pattern[i]] = arr[i];
+                m[pattern[i]-'a'] = arr[i];
                 if(m1.find(arr[i]) != m1.end()){
                     return false;
                 }else{
@@ -44,6 +46,7 @@ public:
             }
         }
         
+        // return true;
         return true;
     }
 };
