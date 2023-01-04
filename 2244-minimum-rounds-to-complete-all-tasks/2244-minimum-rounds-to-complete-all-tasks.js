@@ -12,11 +12,19 @@ var minimumRounds = function(tasks) {
     });
     
     let ans = 0;
+    /*
     for(let [key,value] of m){
         if(value === 1) return -1;
         if(value % 3 == 0) ans += Math.floor(value/3);
         if(value % 3 == 1) ans += Math.floor(value/3) -1 + 2;
         if(value % 3 == 2) ans += Math.floor(value/3) + 1;
+    }
+    */
+    
+    for(let [k,v] of m){
+        if(v ===1 ) return -1;
+        
+        ans += Math.ceil(v/3);
     }
     return ans;
 };
