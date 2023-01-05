@@ -6,7 +6,6 @@ var findMinArrowShots = function(points) {
     
     points.sort((a,b) => a[1] - b[1]);
     
-    console.log(points);
     let count = 1;
     // let s = points[0][0],e = points[0][1];
     let pos = points[0][1];
@@ -23,7 +22,6 @@ var findMinArrowShots = function(points) {
             
         }
         */
-        
         if(pos >= points[i][0])
             continue;
         count++;
