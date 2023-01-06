@@ -9,11 +9,11 @@ var maxIceCream = function(costs, coins) {
     
     let sum = 0,count = 0;
     costs.map((e)=>{
-        if(sum + e <= coins){
-            sum += e;
+        if(e <= coins){
+            // sum += e;
+            coins -= e;
             count++;
-        }
-            
+        } 
     })
     
     return count ;
