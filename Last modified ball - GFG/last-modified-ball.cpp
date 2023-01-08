@@ -12,18 +12,10 @@ class Solution {
     int solve(int N, vector<int> A) {
         // code here
         
-        for(int i = N - 1; i>=0; i--){
-            // if(A[N-1] < 9){
-            //     return N;
-            // }
+        for(int i = N - 1; i>=0; i--)
+            if(A[i] < 9)    return i+1;
             
-            if(A[i] < 9){
-                return i+1;
-            }
-                
-        }
-        
-        return 0;
+        // return 0;
     }
 };
 
