@@ -14,7 +14,7 @@ var preorderTraversal = function(root,arr = []) {
     
     if(root){
         arr.push(root.val);
-        // arr = [...arr,root.val];
+        // arr = [root.val,...arr];
         preorderTraversal(root.left,arr);
         preorderTraversal(root.right,arr);
     }
