@@ -60,13 +60,6 @@ public:
             }
         }
         
-        for(auto s : vset){
-            for(auto val : s){
-                cout << val << " ";
-            }
-            cout << endl;
-        }
-        
         mergearound(vset);
         string ans = "";
         for(int i =0; i<baseStr.size(); i++){
