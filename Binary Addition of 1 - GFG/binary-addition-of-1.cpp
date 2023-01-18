@@ -12,30 +12,17 @@ public:
     string binaryAdd(int n, string s){
         // code here
         // bool flag = false;
-        int carry = 0;
-        
-        if(s[s.size()-1] == '0'){
-                s[s.size()-1] = '1';
-            }else{
-                s[s.size()-1] = '0';
-                carry = 1;
-            }
-            
-        for(int i = s.size()-2; i>=0; i--){
-            
-            if(s[i] == '0' && carry == 1){
-                s[i] = '1';
-                carry = 0;
-            }
-            if(s[i]=='1' && carry == 1){
-                s[i] = '0';
-            }
-        }
-        
-        if(carry == 1){
-            s = '1' + s;
-        }    
-        return s;
+//  int n = s.length();
+    int carry = 1;
+    for (int i = n - 1; i >= 0; i--) {
+        int sum = s[i] - '0' + carry;
+        carry = sum >> 1;
+        s[i] = (sum & 1) + '0';
+    }
+    if (carry) {
+        s = '1' + s;
+    }
+    return s;
     }
 };
 
