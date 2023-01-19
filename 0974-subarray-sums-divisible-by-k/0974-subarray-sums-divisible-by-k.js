@@ -5,14 +5,14 @@
  */
 var subarraysDivByK = function(nums, k) {
     
-    let map = [0];
+    let map = new Array(k).fill(0);
     map[0] = 1;
     let sum = 0,count = 0;
     nums.forEach((e)=>{
         sum += e ;
         let r = (sum % k + k)%k;
         
-        map[r] = map[r] || 0;
+        // map[r] = map[r] || 0;
         count += map[r]
         map[r]++;
     })
