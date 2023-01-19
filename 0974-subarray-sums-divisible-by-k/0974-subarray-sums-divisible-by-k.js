@@ -16,6 +16,6 @@ var subarraysDivByK = function(nums, k) {
         count += map[r]
         map[r]++;
     })
-    console.log(map);
+    // console.log(map);
     return count;
 };
