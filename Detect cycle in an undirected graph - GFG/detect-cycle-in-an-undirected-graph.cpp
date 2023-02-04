@@ -1,69 +1,124 @@
 //{ Driver Code Starts
-#include <bits/stdc++.h>
-using namespace std;
+// Initial Template for javascript
+'use strict';
 
-// } Driver Code Ends
-class Solution {
-  public:
-    // Function to detect cycle in an undirected graph.
-    bool bfs(int src,vector<int> adj[],vector<int>&v){
-        v[src] = 1;
-        
-        queue<pair<int,int>>q;
-        
-        q.push({src,-1});
-        
-        while(!q.empty()){
-            int node = q.front().first;
-            int p = q.front().second;
-            q.pop();
-            for(auto a : adj[node]){
-                if(v[a]==0){
-                    v[a] = 1;
-                    q.push({a,node});
-                }else if(p != a){
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-    bool isCycle(int V, vector<int> adj[]) {
-        // Code here
-        vector<int>v(V,0);
-        
-        for(int i = 0; i<V; i++){
-            if(v[i]==0){
-                if(bfs(i,adj,v))
-                    return true;
-            }
-        }
-        
-        return false;
-    }
-};
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
 
-//{ Driver Code Starts.
-int main() {
-    int tc;
-    cin >> tc;
-    while (tc--) {
-        int V, E;
-        cin >> V >> E;
-        vector<int> adj[V];
-        for (int i = 0; i < E; i++) {
-            int u, v;
-            cin >> u >> v;
-            adj[u].push_back(v);
-            adj[v].push_back(u);
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', inputStdin => { inputString += inputStdin; });
+
+process.stdin.on('end', _ => {
+    inputString = inputString.trim().split('\n').map(
+        string => { return string.trim(); });
+
+    main();
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+function main() {
+    let t = parseInt(readLine());
+    for (let i = 0; i < t; i++) {
+        let input_line = readLine().split(' ');
+        let V = parseInt(input_line[0]);
+        let E = parseInt(input_line[1]);
+
+        let adj = new Array(V);
+        for (let i = 0; i < V; i++) {
+            adj[i] = new Array();
         }
-        Solution obj;
-        bool ans = obj.isCycle(V, adj);
+        for (let i = 0; i < E; i++) {
+            input_line = readLine().split(' ');
+            let x = input_line[0];
+            let y = input_line[1];
+            adj[x].push(y);
+            adj[y].push(x);
+        }
+
+        let obj = new Solution();
+        let ans = obj.isCycle(V, adj);
         if (ans)
-            cout << "1\n";
+            ans = 1;
         else
-            cout << "0\n";
+            ans = 0;
+        console.log(ans);
     }
-    return 0;
 }
 // } Driver Code Ends
+
+
+// User function Template for javascript
+
+/**
+ * @param {number} V
+ * @param {number[][]} adj
+ * @returns {boolean}
+*/
+class Solution {
+    // Function to detect cycle in an undirected graph.
+    dfs(node,parent,adj,visited){
+        
+        visited[node] = 1;
+        
+        for(let i = 0; i<adj[node].length; i++){
+            const a = adj[node][i];
+            if(visited[a] == 0){
+                if(this.dfs(a,node,adj,visited) === true)
+                    return true;
+            }else if(a != parent)   return true;
+        }
+        // adj[node].forEach((a)=>{
+        //     if(visited[a] != 1){
+        //         if(this.dfs(a,node,adj,visited))
+        //             return true;
+        //     }
+        //     else if(a != parent) return true;
+            
+        // })
+        
+        return false;
+    }
+    bfs(src,adj,visited){
+        
+        visited[src] = 1;
+        let q = new Array();
+        q.push([src,-1]);
+        
+        while(q.length){
+            const arr = q.shift();
+            const node = arr[0];
+            const parent = arr[1];
+            // console.log(arr,node,parent);
+            
+            // console.log(adj[node]);
+            // for(let i = 0; i<)
+            adj[node].forEach((a)=>{
+                if(visited[a]==0){
+                    visited[a] = 1;
+                    q.push([a,node]);
+                }else if(parent != a){
+                    // console.log(a);
+                    return true;
+                }
+            })
+        }
+        return false;
+    }
+    isCycle(V, adj) {
+        // code here
+        const visited = new Array(V).fill(0);
+        
+        for(let i = 0; i<V; i++){
+            if(visited[i]==0){
+                if(this.dfs(i,-1,adj,visited) === true)
+                    return true;
+            }
+        }
+        return false;
+    }
+}
