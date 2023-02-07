@@ -1,6 +1,6 @@
 function arithmeticTriplets(nums: number[], diff: number): number {
     
-    let count = 0;
+    let count:number = 0;
     const map = new Map();
 
     for(let i = 0; i<nums.length; i++){
