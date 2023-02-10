@@ -45,8 +45,9 @@ private :
 //     }
 public:
     vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
-        
+       
         int m = mat.size();
+        
         int n = mat[0].size();
         vector<vector<int>>ans(m,vector<int>(n,0));
         vector<vector<bool>>visited(m,vector<bool>(n,false));
