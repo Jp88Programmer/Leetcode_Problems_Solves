@@ -6,18 +6,16 @@
 var countOdds = function(low, high) {
     
     let diff = high - low + 1;
-    
+    let res = parseInt(diff/2);
+    let resOdd = res + 1;
     if(parseInt(diff % 2) === 0){
-        return  parseInt(diff/2);
+        return  res;
     }else{
-        
         if(parseInt(low % 2) === 0){
-            return parseInt(diff/2);
+            return res;
         }else{
-            return parseInt(diff/2) + 1
+            return res + 1;
         }
-        
     }
-    // return parseInt(low % 2) === 0 ? parseInt(diff / 2) : parseInt(diff/2)-1;
-    // return parseInt(diff/2);
+
 };
