@@ -125,11 +125,6 @@ class Solution {
     {
         //your code here
         if(!node) return 0;
-        let lh=0,rh= 0;
-        if(node.left)
-         lh = this.height(node.left);
-         if(node.right)
-         rh = this.height(node.right);
-        return 1+Math.max(lh,rh);
+        return 1 + Math.max(this.height(node.left),this.height(node.right))
     }
 }
