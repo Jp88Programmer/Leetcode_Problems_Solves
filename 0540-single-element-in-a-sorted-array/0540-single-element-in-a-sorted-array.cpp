@@ -1,24 +1,21 @@
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var singleNonDuplicate = function(arr) {
-    
-    let n = arr.length;
-    
-    if(n == 1) return arr[n-1];
+class Solution {
+public:
+    int singleNonDuplicate(vector<int>& nums) {
         
-        let s = 0;
-        let e = n - 2;
+        int n = nums.size();
+        if(n == 1) return nums[0];
+        
+        int s =0;
+        int e = n - 2;
         
         while(s <= e){
-            let m = (s + e) >> 1;
-            if(arr[m] == arr[m^1])
+            int m = (s + e) >> 1;
+            if(nums[m] == nums[m^1])
                 s = m + 1;
             else 
                 e = m - 1;
-            
         }
+        return nums[s];
         
-        return arr[s];
+    }
 };
