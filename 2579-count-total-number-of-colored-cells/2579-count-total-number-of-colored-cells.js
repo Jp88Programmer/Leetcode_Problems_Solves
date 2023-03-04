@@ -5,7 +5,6 @@
 var coloredCells = function(n) {
     
     let dp = new Array(n+1).fill(0);
-    
     let oddNum = 3;
     let presum = 0;
     let sum = 1;
