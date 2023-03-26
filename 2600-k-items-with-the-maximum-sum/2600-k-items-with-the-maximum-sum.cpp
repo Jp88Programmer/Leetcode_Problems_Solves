@@ -2,16 +2,9 @@ class Solution {
 public:
     int kItemsWithMaximumSum(int numOnes, int numZeros, int numNegOnes, int k) {
         
-        if(numOnes > k){
-            return k;
-        }else if(numOnes + numZeros >= k){
-            return numOnes;
-        }else if(numOnes + numZeros + numNegOnes >= k){
-            int num = k - (numOnes + numZeros);
-            return numOnes - num;
-        }
+        if(numOnes >= k)    return k;
+        if(numOnes + numZeros >= k) return numOnes;
         
-        return 0;
-        
+        return numOnes - (k-numOnes-numZeros);        
     }
 };
