@@ -1,13 +1,7 @@
 function singleNumber(nums: number[]): number {
-    
-    const map = new Map();
-    for(let i = 0; i<nums.length; i++)
-        map.set(nums[i],map.get(nums[i]) ? map.get(nums[i]) + 1 : 1);
-    
-    let ans = -1;
-    for(const [key,value] of map){
-        if(value == 1)
-            ans = key;
+    var result = nums[0];
+    for(var i = 1; i < nums.length; i++) {
+        result = result^nums[i];
     }
-    return ans;
+    return result;
 };
