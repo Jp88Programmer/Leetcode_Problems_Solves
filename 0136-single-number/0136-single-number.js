@@ -4,14 +4,14 @@
  */
 var singleNumber = function(nums) {
     const map = {};
-    for(let i = 0; i<nums.length; i++){
+    for(let i = 0; i<nums.length; i++)
         map[nums[i]] = map[nums[i]] ? map[nums[i]]+1 : 1;
-    }
-    console.log(map);
+    
     let ans = -1;
-    for(key in map){
-        if(map[key] == 1)
-            ans = parseInt(key);
-    }
+    const arr = Object.entries(map);
+    for(a of arr)
+        if(a[1] == 1)
+            ans = parseInt(a[0]);
+    
     return ans;
 };
