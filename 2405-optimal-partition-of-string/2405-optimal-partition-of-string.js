@@ -15,7 +15,8 @@ var partitionString = function(s) {
             arr[n]++;
         }else{
             count++;
-            arr = new Array(26).fill(0);
+            // arr = new Array(26).fill(0);
+            arr.fill(0);
             i--;
         }
     }
