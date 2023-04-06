@@ -18,19 +18,20 @@ public:
         
         return left and right and up and down;
     }
-    void dfs(int i,int j,int m,int n,vector<vector<int>>& grid,vector<vector<int>>& visited){
+    bool dfs(int i,int j,int m,int n,vector<vector<int>>& grid,vector<vector<int>>& visited){
         if(visited[i][j]==1 || grid[i][j] == 1){
-            return;
+            return false;
         }
         
         visited[i][j] = 1;
+        bool x,y,z,w;
         if(i>0 && i<m-1 && j>0 && j<n-1 && grid[i][j] == 0){
-            dfs(i,j+1,m,n,grid,visited);
-            dfs(i,j-1,m,n,grid,visited);
-            dfs(i+1,j,m,n,grid,visited);
-            dfs(i-1,j,m,n,grid,visited);
+           x = dfs(i,j+1,m,n,grid,visited);
+           y = dfs(i,j-1,m,n,grid,visited);
+           z = dfs(i+1,j,m,n,grid,visited);
+           w = dfs(i-1,j,m,n,grid,visited);
         }
-        
+        return x && y && z && w;
     }
     int closedIsland(vector<vector<int>>& grid) {
         
@@ -40,14 +41,7 @@ public:
         int count = 0;
         
         
-//         for(int i = 0; i<m; i++){
-//             for(int j = 0; j<n; j++){
-//                 if(i == 0|| i == m-1 || j == 0 || j == n-1){
-//                     dfs(i,j,m,n,grid,visited);
-//                     // count++;
-//                 }
-//             }
-//         }
+       
         
         for(int i = 0; i<m; i++){
             for(int j = 0; j<n; j++){
@@ -55,6 +49,7 @@ public:
                     if(dfs(i,j,grid,visited))
                     count++;
                     // dfs(i,j,grid,visited);
+                    // count++;
                 }
             }
         }
