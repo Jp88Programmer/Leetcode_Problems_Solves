@@ -40,16 +40,11 @@ public:
         vector<vector<int>>visited(m,vector<int>(n,0));
         int count = 0;
         
-        
-       
-        
         for(int i = 0; i<m; i++){
             for(int j = 0; j<n; j++){
                 if(visited[i][j] == 0 && grid[i][j] == 0){
                     if(dfs(i,j,grid,visited))
                     count++;
-                    // dfs(i,j,grid,visited);
-                    // count++;
                 }
             }
         }
