@@ -4,31 +4,22 @@
  */
 var isValid = function(s) {
     
-    let stack = [];
+ 
+    if(s.length == 0 || s.length % 2 != 0) return false;
     
+    let closeParentheses = Object.freeze({
+        "(" : ")",
+        "{" : "}",
+        "[" : "]",
+    });
+    
+    const stack = [];
     for(let i = 0; i<s.length; i++){
-        
-        if(['(','{','['].includes(s.charAt(i))){
-            stack.unshift(s.charAt(i));
-        }else if([')','}',']'].includes(s.charAt(i))){
-            
-            if(s.charAt(i) == ')' && stack[0] == '('){
-                stack.shift();
-            }
-            
-            else if(s.charAt(i) == '}' && stack[0] == '{'){
-                stack.shift();
-            }
-            
-            else if(s.charAt(i) == ']' && stack[0] == '['){
-                stack.shift();
-            }
-            
-            else 
-                return false;
+        if(s[i] in closeParentheses){
+            stack.push(s[i]);
+        }else if(s[i] != closeParentheses[stack.pop()]){
+            return false;
         }
     }
-    
-    if(stack.length > 0) return false;
-    return true;
+    return stack.length == 0;
 };
