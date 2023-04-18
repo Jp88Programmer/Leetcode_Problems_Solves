@@ -4,22 +4,19 @@
  */
 var rearrangeArray = function(nums) {
     
-    let pos = [];
-    let neg = [];
+    let ans = new Array(nums.length).fill(0);
+    let evenIndex = 0;
+    let oddIndex = 1;
     
-    nums.forEach(e => {
-        if(e > 0)
-            pos.push(e);
-        else
-            neg.push(e);
-    })
-    
-    let ans = [];
-    let i = 0;
-    while(i < pos.length && i < neg.length){
-        ans.push(pos[i]);
-        ans.push(neg[i]);
-        i++;
+    for(let i = 0; i<nums.length; i++){
+        if(nums[i]>0){
+            ans[evenIndex] = nums[i];
+            evenIndex += 2;
+        }else{
+            ans[oddIndex] = nums[i];
+            oddIndex += 2;
+        }
+            
     }
     return ans;
 };
