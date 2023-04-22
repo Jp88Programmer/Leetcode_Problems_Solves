@@ -14,31 +14,14 @@ var findRotation = function(matrix, target) {
     
     let n = matrix.length;
     let k = 0;
-    let flip = false;
     while(k<4){
-        flip = false;
+        if(JSON.stringify(matrix) === JSON.stringify(target))
+            return true;
+        trans(matrix);
         for(let i = 0; i<matrix.length; i++){
-            for(let j = 0; j < matrix[i].length; j++){
-                if(matrix[i][j] != target[j][n-i-1]){
-                    flip = true;
-                    break;
-                }
-            }
-        }
-        
-        if(flip){
-            trans(matrix);
-            for(let i = 0; i<matrix.length; i++){
-                matrix[i].reverse();
-            }
-        }else{
-            break;
-        }
-       
+            matrix[i].reverse();
+        }   
         k++;
     }
-    
-    if(flip)
-        return false;
-    return true;
+    return false;
 };
