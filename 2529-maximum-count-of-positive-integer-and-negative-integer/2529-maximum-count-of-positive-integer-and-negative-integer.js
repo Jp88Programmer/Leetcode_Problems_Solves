@@ -27,12 +27,9 @@ var binarySearchForPos = function(arr){
     return e;
 }
 var maximumCount = function(nums) {
-    
     let s = 0,e = nums.length - 1;
     let neg = 0,pos = 0;
     neg = binarySearchForNeg(nums) ;
     pos = nums.length - binarySearchForPos(nums) - 1;
-    // console.log(neg,pos)
-    // if(neg == 0 && pos == 0) return nums.length;
     return Math.max(neg,pos);
 };
