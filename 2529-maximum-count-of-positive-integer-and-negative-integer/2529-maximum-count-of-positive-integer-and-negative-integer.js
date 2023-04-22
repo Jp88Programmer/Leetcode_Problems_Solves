@@ -11,9 +11,9 @@ var binarySearch = function(arr,isPos = false){
         }else if(arr[m] > 0){
             e = m - 1;
         }else{
-            if(isPos){
+            if(isPos)
                 s = m + 1;
-            }else
+            else
                 e = m - 1;
         }
     }
