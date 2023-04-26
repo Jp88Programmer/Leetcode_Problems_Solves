@@ -4,15 +4,10 @@
  */
 var addDigits = function(num) {
     
-    let ans = num;
-    while(ans >= 10){
-        let x = ans;
-        let sum = 0;
-        while(x > 0){
-            sum += x % 10;
-            x = Math.floor(x/10);
-        }
-        ans = sum ;
-    }
-    return ans ;
+     if(num == 0) return 0;
+        
+        else if(num % 9 == 0) return 9;
+        
+        else
+            return num % 9;
 };
