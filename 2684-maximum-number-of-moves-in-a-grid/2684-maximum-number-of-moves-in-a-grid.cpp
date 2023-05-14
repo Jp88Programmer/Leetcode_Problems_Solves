@@ -1,13 +1,9 @@
 class Solution {
 public:
-    // int maxcount = 0;
-    
     int dfs(int row,int col,int m,int n,vector<vector<int>>& grid,vector<vector<int>>& dp){
         int count = 0;
         if(col > n || col < 0 || row > m || row < 0)
             return 0;
-        // count++;
-        // maxcount = max(maxcount,count);
         if(row - 1 >= 0 && col + 1 < n && (grid[row][col] < grid[row-1][col+1]) ){
             if(dp[row-1][col+1] != 0)
                 count = max(count,dp[row-1][col+1]);
