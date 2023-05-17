@@ -9,9 +9,9 @@ var merge = function(int) {
     let end = int[0][1];
     let ans = [];
   
-        ans.push([start,end]);
-      if(int.length == 1)
-          return ans;
+    ans.push([start,end]);
+    if(int.length == 1)
+        return ans;
     for(let i = 1; i<int.length; i++){
         if(ans[ans.length-1][0] <= int[i][1] && ans[ans.length-1][1] >= int[i][0]){
             start = Math.min(int[i][0],ans[ans.length-1][0]);
