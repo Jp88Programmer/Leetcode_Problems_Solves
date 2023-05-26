@@ -5,14 +5,24 @@
  */
 var flat = function (arr, n) {
     
-    if(n == 0) return arr;
-    let ans = []
-    for(let i = 0; i<arr.length; i++){
-        if(Array.isArray(arr[i])){
-            ans.push(...flat(arr[i],n-1));
-        }else{
-            ans.push(arr[i]);
+    let i = 0,j = 0;
+    function flatternarr(arr,i,j,n){
+        if(i === n){
+            return arr;
         }
+       
+        let ans = [];
+        i++;
+        arr.map(e => {
+            if(Array.isArray(e)){
+                ans.push(...flatternarr(e,i,j,n));
+            }else{
+                ans.push(e);
+                j++;
+            }
+        })
+        
+        return ans;
     }
-    return ans;
+    return flatternarr(arr,i,j,n);
 };
