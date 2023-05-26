@@ -1,12 +1,12 @@
-/**
- * @param {Array} arr
- * @return {Generator}
- */
-var inorderTraversal = function*(arr) {
-    const ans = arr.flat(1000000);
-    let i = 0;
-    while(i < ans.length){
-        yield ans[i++];
+type MultidimensionalArray = (MultidimensionalArray | number)[]
+
+function* inorderTraversal(arr: MultidimensionalArray): Generator<number, void, unknown> {
+    for (let element of arr) {
+        if (Array.isArray(element)) {
+            yield* inorderTraversal(element);
+        } else {
+            yield element;
+        }
     }
 };
 
