@@ -3,7 +3,6 @@
  * @return {Array}
  */
 Array.prototype.groupBy = function(fn) {
-    
     let obj = {};
     for(let i = 0; i<this.length; i++){
         let id = fn(this[i]);
