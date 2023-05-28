@@ -5,7 +5,6 @@
 Array.prototype.groupBy = function(fn) {
     
     let obj = {};
-    // console.log(this.leng)
     for(let i = 0; i<this.length; i++){
         let id = fn(this[i]);
         if(!obj.hasOwnProperty(id)){
