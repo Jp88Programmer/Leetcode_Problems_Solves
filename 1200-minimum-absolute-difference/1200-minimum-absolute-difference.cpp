@@ -8,7 +8,6 @@ public:
             if(diff > arr[i] - arr[i-1])
                 diff = arr[i] - arr[i-1];
         }
-        cout << diff << endl;
         vector<vector<int>>ans;
         for(int i = 1; i<arr.size(); i++){
             if(arr[i] - arr[i-1] == diff){
