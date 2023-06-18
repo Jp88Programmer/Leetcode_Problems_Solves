@@ -31,7 +31,6 @@ public:
                 s = cut1 + 1;
             }
         }
-        
         return 0.0;
     }
 };
