@@ -1,29 +1,29 @@
-/**
- * @param {number[][]} intervals
- * @return {number[][]}
- */
-var merge = function(int) {
-    
-    int.sort((a,b)=> a[0]-b[0]);
-    let start = int[0][0];
-    let end = int[0][1];
-    let ans = [];
-  
-    ans.push([start,end]);
-    if(int.length == 1)
-        return ans;
-    for(let i = 1; i<int.length; i++){
-        if(ans[ans.length-1][0] <= int[i][1] && ans[ans.length-1][1] >= int[i][0]){
-            start = Math.min(int[i][0],ans[ans.length-1][0]);
-            end = Math.max(int[i][1],ans[ans.length-1][1])
-            ans[ans.length-1][0] = start;
-            ans[ans.length-1][1] = end;
+class Solution {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
         
-        }else{
-            ans.push([int[i][0],int[i][1]]);
-            start = int[i][0];
-            end = int[i][1];
+        sort(intervals.begin(),intervals.end());
+        
+        vector<vector<int>>vp;
+        
+        vp.push_back({intervals[0][0],intervals[0][1]});
+        
+        if(intervals.size() == 1)
+            return vp ;
+        
+        for(int i = 1 ; i < intervals.size()  ; i++){
+            
+            if(vp[vp.size()-1][1] >= intervals[i][0]){
+                
+                if(vp[vp.size()-1][1] < intervals[i][1])
+                    vp[vp.size()-1][1] = intervals[i][1];
+            }else{
+                
+                vp.push_back({intervals[i][0],intervals[i][1]});
+                
+            }
         }
+        
+        return vp ;
     }
-    return ans;
 };
