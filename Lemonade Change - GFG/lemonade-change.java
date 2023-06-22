@@ -1,49 +1,21 @@
 //{ Driver Code Starts
-// Initial Template for Java
+#include <bits/stdc++.h>
+using namespace std;
 
-import java.util.*;
-import java.lang.*;
-import java.math.*;
-import java.io.*;
-
-class GFG {
-    public static void main(String[] args) throws IOException {
-        Scanner sc = new Scanner(System.in);
-        int T = sc.nextInt();
-        while (T-- > 0) {
-            int n = sc.nextInt();
-            int a[] = new int[n];
-            for (int i = 0; i < n; i++) {
-                a[i] = sc.nextInt();
-            }
-
-            Solution obj = new Solution();
-            boolean ans = obj.lemonadeChange(n, a);
-            System.out.println(ans ? "True" : "False");
-        }
-    }
-}
 
 // } Driver Code Ends
-
-
-// User function Template for Java
-
 class Solution {
-    static boolean lemonadeChange(int N, int bills[]) {
+  public:
+    bool lemonadeChange(int N, vector<int> &bills) {
         // code here
+        
         int five=0,ten=0;
         
-        for(int b:bills)
+        for(auto b:bills)
         {
             if(b == 5) five++;
-            else if(b == 10){
-                ten++;five--;
-            } 
-            else if(ten>0) {
-                ten--; five--;
-                
-            }
+            else if(b == 10) ten++,five--;
+            else if(ten>0) ten--, five--;
             else
                 five -= 3;
             if(five < 0) return false;
@@ -51,4 +23,27 @@ class Solution {
         
         return true;
     }
+};
+
+//{ Driver Code Starts.
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int N;
+        cin >> N;
+
+        vector<int> bills(N);
+        for (int i = 0; i < N; i++) cin >> bills[i];
+
+        Solution obj;
+        int ans = obj.lemonadeChange(N, bills);
+        if (ans)
+            cout << "True" << endl;
+        else
+            cout << "False" << endl;
+    }
+    return 0;
 }
+// } Driver Code Ends
