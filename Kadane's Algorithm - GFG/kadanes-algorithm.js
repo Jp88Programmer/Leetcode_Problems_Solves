@@ -54,17 +54,17 @@ function main() {
 */
 class Solution {
     //Function to find the sum of contiguous subarray with maximum sum.
-    maxSubarraySum(nums, N){
-        // code here
-         
-    let maxSum = Number.MIN_SAFE_INTEGER;
-    let sum = 0;
-    
-    for(let i = 0; i<N; i++){
-        sum += nums[i];
-        maxSum = Math.max(maxSum,sum);
-        if(sum < 0) sum = 0;
-    }
-    return maxSum ;
+    maxSubarraySum(arr, N){
+        let maxsum = Number.MIN_SAFE_INTEGER;
+        let sum = 0;
+        arr.map(e =>{
+            sum += e;
+            if(sum > maxsum)
+                maxsum = sum;
+            if(sum < 0)
+                sum = 0;
+            
+        })
+        return maxsum ;
     } 
 }
