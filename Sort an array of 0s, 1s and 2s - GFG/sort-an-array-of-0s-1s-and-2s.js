@@ -68,23 +68,20 @@ class Solution {
     sort012(nums, N)
     {
         //your code here
-        let s = 0, e = nums.length-1;
-    let i = 0;
-    while(i <= e){
-         if(nums[i]==0){
-            let temp = nums[i];
-            nums[i++] = nums[s];
-            nums[s] = temp;
-            s++;
+       let l = 0,r = nums.length - 1;
+        let i = 0;
+        while(i <= r){
+            if(nums[i] == 0){
+                [nums[i],nums[l]] = [nums[l],nums[i]];
+                l++;
+                i++;
+            }else if(nums[i] == 2){
+                [nums[i],nums[r]] = [nums[r],nums[i]];
+                r--;
+            }else{
+                i++;
+            }
         }
-        else if(nums[i]==2){
-            let temp = nums[i];
-            nums[i] = nums[e];
-            nums[e] = temp;
-            e--;
-        }else
-            i++;
-    }
-    
+        return nums;
     }
 }
