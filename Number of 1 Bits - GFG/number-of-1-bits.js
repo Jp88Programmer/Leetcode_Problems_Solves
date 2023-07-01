@@ -1,34 +1,34 @@
 //{ Driver Code Starts
-#include <bits/stdc++.h>
-using namespace std;
+// Initial Template for Java
+import java.io.*;
+import java.util.*;
+
+class GFG {
+    public static void main(String args[]) throws IOException {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while (t-- > 0) {
+            int N = sc.nextInt();
+
+            Solution ob = new Solution();
+            int cnt = ob.setBits(N);
+            System.out.println(cnt);
+        }
+    }
+}
 
 // } Driver Code Ends
+
+
+// User function Template for Java
 class Solution {
-  public:
-    int setBits(int n) {
-        // Write Your Code here
+    static int setBits(int n) {
+        // code here
         int count = 0;
-        while(n){
+        while(n > 0){
             count += n & 1;
             n >>= 1;
         }
         return count;
     }
-};
-
-//{ Driver Code Starts.
-int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-        int N;
-        cin >> N;
-
-        Solution ob;
-        int cnt = ob.setBits(N);
-        cout << cnt << endl;
-    }
-    return 0;
 }
-
-// } Driver Code Ends
