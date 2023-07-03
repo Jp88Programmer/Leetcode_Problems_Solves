@@ -16,7 +16,6 @@ public:
             j--;
         
         swap(s[i],s[j]);
-        
         return s == g;
             
     }
