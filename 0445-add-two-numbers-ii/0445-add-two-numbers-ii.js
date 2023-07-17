@@ -24,7 +24,6 @@ var addTwoNumbers = function(l1, l2) {
         arr2.unshift(l2.val);
         l2 = l2.next;
     }
-    console.log(arr1,arr2)
     let i = 0,j = 0;
     let arr = [];
     let carr = 0;
@@ -49,7 +48,6 @@ var addTwoNumbers = function(l1, l2) {
     }
     if(carr > 0)
         arr.push(carr);
-    console.log(arr);
     let temp = null;
     let head = null;
     for(let i = arr.length-1; i>=0; i--){
