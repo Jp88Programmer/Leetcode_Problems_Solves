@@ -9,13 +9,10 @@ var longestOnes = function(nums, k) {
     for(let i = 0; i<nums.length ; i++){
         if(nums[i] == 0) zero++;
         while(zero > k){
-            if(nums[j]==1){
-                j++;
-            }
             if(nums[j] == 0){
-                j++;
                 zero--;
             }
+            j++;
         }
         ans = Math.max(ans,i-j+1);
     }
