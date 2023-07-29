@@ -134,9 +134,6 @@ float findMedian(struct Node *root)
       //Code here
       vector<int>v;
       insert(v,root);
-    //   for(auto i : v)
-    //   cout << i << " ";
-    //   cout << endl;
       if(v.size() % 2 == 0)
         return ( v[v.size()/2] + v[v.size()/2 - 1] )/ 2.0;
       else
