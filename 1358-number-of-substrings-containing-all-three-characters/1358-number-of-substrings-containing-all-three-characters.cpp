@@ -1,15 +1,12 @@
 class Solution {
 public:
     int numberOfSubstrings(string s) {
-        unordered_map<int,int>m;
+        int arr[3] = {0};
         int j = 0,count = 0;
         for(int i = 0; i<s.size(); i++){
-            m[s[i]]++;
-            while(m.size() >= 3){
-                m[s[j]]--;
-                if(m[s[j]] == 0)
-                    m.erase(s[j]);
-                j++;
+            arr[s[i] - 'a']++;
+            while(arr[0] > 0 && arr[1] > 0 && arr[2] > 0){
+                arr[s[j++]-'a']--;
                 count += s.size() - i;
             }   
         }
