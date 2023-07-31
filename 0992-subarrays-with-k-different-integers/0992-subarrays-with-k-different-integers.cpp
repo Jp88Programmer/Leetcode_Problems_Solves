@@ -16,7 +16,6 @@ public:
         return count; 
     }
     int subarraysWithKDistinct(vector<int>& nums, int k) {
-        // int n = nums.size();
         return fun(nums,k) - fun(nums,k-1);
     }
 };
