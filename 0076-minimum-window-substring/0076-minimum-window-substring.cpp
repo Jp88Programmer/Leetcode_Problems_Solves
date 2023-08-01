@@ -9,11 +9,8 @@ public:
         }
         
         for(int i = 0; i<s.size(); i++){
-            // if(m1[s[i]]){
                 m1[s[i]]--;
-            // }
             if(m1[s[i]] == 0) count--;
-            // if(count == 0){
                 while(count == 0){
                     if(res > (i - j + 1)){
                         start = j;
@@ -24,11 +21,9 @@ public:
                         count++;
                     j++;
                 }
-            // }
         }
         if(res != INT_MAX)
             return s.substr(start,res);
-        // cout << start << " " << end << endl;
         return "";
     }
 };
