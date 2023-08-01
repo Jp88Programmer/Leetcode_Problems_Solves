@@ -2,7 +2,7 @@ class Solution {
 public:
     string minWindow(string s, string t) {
         int j = 0,res = INT_MAX,start = 0,end = 0,count = 0;
-        unordered_map<int,int>m1,m2;
+        unordered_map<int,int>m1;
         for(int i = 0; i<t.size(); i++){
             if(m1[t[i]] == 0) count++;
             m1[t[i]]++;
