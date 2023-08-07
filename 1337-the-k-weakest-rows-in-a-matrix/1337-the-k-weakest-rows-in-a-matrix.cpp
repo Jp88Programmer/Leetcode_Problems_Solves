@@ -12,21 +12,27 @@ public:
     vector<int> kWeakestRows(vector<vector<int>>& mat, int k) {
         
         vector<pair<int,int>>v;
+        set<pair<int,int>>s;
         for(int i = 0; i<mat.size(); i++){
             int one = 0;
             for(int j = 0; j<mat[i].size(); j++){
                 if(mat[i][j] == 1)
                     one++;
             }
-            v.push_back({one,i});
+            // v.push_back({one,i});
+            s.insert({one,i});
         }
         
         sort(v.begin(),v.end(),cmp);
         vector<int>ans;
-        int i = 0;
-        while(i < k){
-            ans.push_back(v[i].second);
-            i++;
+        int j = 0;
+        for(auto i : s){
+            if(j < k){
+                ans.push_back(i.second);
+                j++;
+            }else{
+                break;
+            }
         }
         return ans;
     }
