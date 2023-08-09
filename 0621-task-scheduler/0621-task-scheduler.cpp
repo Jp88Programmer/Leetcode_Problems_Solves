@@ -6,10 +6,14 @@ public:
             fr[i-'A']++;
         }
         sort(fr.begin(),fr.end(),greater<int>());
-        int ideal = (fr[0]-1)*n;
-        for(int i = 1; i<fr.size(); i++){
-            ideal -= min(fr[0]-1,fr[i]);
-        }
-        return t.size() + max(0,ideal);
+        // int ideal = (fr[0]-1)*n;
+        
+        int ans = (fr[0]-1)*(n+1);
+        for(auto e : fr) if(e == fr[0]) ans++;
+        return max((int)t.size(), ans);
+        // for(int i = 1; i<fr.size(); i++){
+        //     ideal -= min(fr[0]-1,fr[i]);
+        // }
+        // return t.size() + max(0,ideal);
     }
 };
