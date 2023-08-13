@@ -1,7 +1,7 @@
 class Solution {
 public:
     int minAbsoluteDifference(vector<int>& nums, int x) {
-        multiset<int>s;
+        set<int>s;
         int res= INT_MAX;
         for(int i = x ; i<nums.size(); i++){
             s.insert(nums[i-x]);
