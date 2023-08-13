@@ -2,7 +2,6 @@ class Solution {
 public:
     int maxSum(vector<int>& nums) {
         int res = -1,maxDigit[10]={0};
-        
         for(auto num : nums){
             int maxd = 0;
             for(int d = num; d ; d/=10)
@@ -11,7 +10,6 @@ public:
                 res = max(res,maxDigit[maxd]+num);
             maxDigit[maxd] = max(maxDigit[maxd],num);
         }
-        
         return res;
     }
 };
