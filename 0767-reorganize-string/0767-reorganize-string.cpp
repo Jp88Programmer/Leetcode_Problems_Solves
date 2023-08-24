@@ -5,7 +5,6 @@ public:
         int n = s.size();
         unordered_map<char,int>m;
         priority_queue<pair<int,char>>pq;
-        // int arr[26] = {0};
         for(auto i : s)
             m[i]++;
         
@@ -40,12 +39,5 @@ public:
         }
         
         return str;
-        // for(int i = 0; i<26; i++){
-        //     if(arr[i] > n/2)
-        //         return "";
-        //     else{
-        //         str += arr[i] > 0 ? (char)(i+ 97) : "";
-        //     }
-        // }
     }
 };
