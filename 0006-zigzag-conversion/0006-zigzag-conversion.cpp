@@ -2,7 +2,6 @@ class Solution {
 public:
     string convert(string str, int r) {
         
-        // string ans[r] = {""};
         if(r == 1) return str;
         vector<string>ans(r,"");
         bool neg = false;
