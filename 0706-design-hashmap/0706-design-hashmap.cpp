@@ -12,8 +12,6 @@ public:
     }
     
     int get(int key) {
-        // if(this->v[key] == 0)
-        //     return -1;
         return this->v[key];
     }
     
