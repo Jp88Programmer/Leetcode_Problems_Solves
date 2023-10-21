@@ -3,6 +3,6 @@
  * @return {boolean}
  */
 var isEmpty = function(obj) {
-    console.log(JSON.stringify(obj))
-    return JSON.stringify(obj).length <= 2
+    
+   return Object.keys(obj).length == 0
 };
