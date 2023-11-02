@@ -17,7 +17,6 @@ let inorder = function(root,map){
     inorder(root.right,map);
 }
 var findMode = function(root) {
-    
     let map = new Map();
     inorder(root,map);
     let maxVal = [-1],fr = 0;
