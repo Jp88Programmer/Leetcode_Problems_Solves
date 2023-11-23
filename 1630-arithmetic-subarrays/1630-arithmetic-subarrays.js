@@ -5,14 +5,11 @@
  * @return {boolean[]}
  */
 var checkArithmetic = function(nums){
-    
     let maxnum = Math.max(...nums);
     let minnum = Math.min(...nums);
-    
     if((maxnum - minnum) % (nums.length -1) != 0) false;
     let step = (maxnum - minnum) / (nums.length -1);
     if(step == 0) return true;
-    
     const set = new Set(nums);
     for(let i = 1; i<nums.length ; i++){
         if(!set.has(minnum + i * step)) return false;
