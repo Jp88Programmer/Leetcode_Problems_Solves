@@ -1,20 +1,16 @@
 class Solution {
 public:
     bool isSpeical(vector<vector<int>>& mat,int ix,int jy){
-        int count1 = 0,count2 = 0;
+        int count = 0;
         for(int j = 0; j<mat[0].size(); j++){
             if(mat[ix][j] == 1 && mat[ix][jy] == 1)
-                count1++;
+                count++;
         }
-        
-        
         for(int i = 0; i<mat.size(); i++){
             if(mat[i][jy] == 1 &&  mat[ix][jy] == 1)
-                count2++;
+                count++;
         }
-        
-        cout << count1 << " " << count2 << endl;
-        return (count1) + (count2) == 2;
+        return count == 2;
     }
     int numSpecial(vector<vector<int>>& mat) {
         
