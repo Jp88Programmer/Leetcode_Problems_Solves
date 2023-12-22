@@ -3,16 +3,13 @@
  * @return {number}
  */
 var countScore = function(s,start,end,num){
-    
     let countNum = 0;
-    for(let i = start; i<=end; i++){
+    for(let i = start; i<=end; i++)
         if(s.charAt(i) == num)
             countNum++;
-    }
     return countNum;
 }
 var maxScore = function(s) {
-    
     let maxCount = 0;
     for(let i = 0; i<s.length; i++){
         if(i+1 < s.length){
