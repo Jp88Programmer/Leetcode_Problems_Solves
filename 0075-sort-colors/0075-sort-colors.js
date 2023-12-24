@@ -2,21 +2,17 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
+const findMinElement = (nums,start)=>{
+    let minId = start;
+    for(let i = start+1; i< nums.length; i++)
+        if(nums[minId] > nums[i])
+            minId = i;
+    return minId;
+}
 var sortColors = function(nums) {
-    
-  let l = 0,r = nums.length - 1;
-    let i = 0;
-    
-    while(i <= r){
-        if(nums[i] == 0){
-            [nums[i],nums[l]] = [nums[l],nums[i]];
-            l++;
-            i++;
-        }else if(nums[i] == 2){
-            [nums[i],nums[r]] = [nums[r],nums[i]];
-            r--;
-        }else{
-            i++;
-        }
+    for(let i = 0; i<nums.length; i++){
+        let minId = findMinElement(nums,i);
+        [nums[i], nums[minId]] = [nums[minId],nums[i]];
     }
+    return nums;
 };
