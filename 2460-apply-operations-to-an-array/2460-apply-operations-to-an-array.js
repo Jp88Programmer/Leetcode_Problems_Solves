@@ -10,12 +10,10 @@ var applyOperations = function(nums) {
             nums[i+1] = 0;
         }
     }
-    let arr1 = [],arr2 = []
-    for(let i = 0; i<nums.length; i++){
-        if(nums[i] !== 0) 
-            arr1.push(nums[i]);
-        else
-            arr2.push(nums[i]);
+    let i = 0;
+    for(let n of nums){
+        if(n != 0) nums[i++] = n;
     }
-    return [...arr1,...arr2];
+    while(i < nums.length) nums[i++] = 0;
+    return nums;
 };
