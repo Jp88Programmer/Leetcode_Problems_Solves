@@ -1,7 +1,8 @@
 function singleNumber(nums: number[]): number {
-    var result = nums[0];
-    for(var i = 1; i < nums.length; i++) {
-        result = result^nums[i];
+    let res = nums[0];
+    for(let i = 1; i<nums.length; i++){
+        res ^= nums[i];
+        console.log(res)
     }
-    return result;
+    return res;
 };
