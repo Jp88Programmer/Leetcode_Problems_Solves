@@ -4,7 +4,7 @@
  */
 var missingNumber = function(nums) {
     let n = nums.length;
-    let sum = Math.floor((n * (n+1)) / 2);
-    let sum1 = nums.reduce((acc,e)=> acc+e);
-    return sum - sum1;
+    let sum = nums.reduce((n,s) => n + s,0);
+    let num = Math.floor((n * (n+1)) / 2);
+    return num - sum;
 };
