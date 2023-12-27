@@ -5,15 +5,16 @@
  */
 var subarraySum = function(nums, k) {
     
-    let m = new Map();
-    let sum = 0,res = 0;
-    m.set(0,1);
-    nums.map(e => {
-        sum += e;
-        if(m.has(sum - k)){
-            res += m.get(sum - k);
+    let sum = 0;
+    let map = new Map();
+    map.set(sum,1);
+    let maxSumArr = 0;
+    nums.map(n => {
+        sum += n;
+        if(map.has(sum - k)){
+            maxSumArr+=map.get(sum-k);
         }
-        m.set(sum,m.get(sum) ? m.get(sum) + 1:1);
+        map.set(sum,map.has(sum)?map.get(sum)+1:1);
     })
-    return res;  
+    return maxSumArr;
 };
