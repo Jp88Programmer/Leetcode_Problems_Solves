@@ -6,7 +6,6 @@ var findMatrix = function(nums) {
     
     let ans = [];
     for(let i = 0; i<nums.length; i++){
-        
         if(ans.length == 0){
             const set = new Set([nums[i]]);
             ans.push(set);
