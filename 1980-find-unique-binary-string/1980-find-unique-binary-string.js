@@ -19,7 +19,6 @@ var findDifferentBinaryString = function(nums) {
             break;
         }
     }
-    
     if(ml>str.length){
         return new Array(ml-str.length).fill('0').join("") + str;
     }
