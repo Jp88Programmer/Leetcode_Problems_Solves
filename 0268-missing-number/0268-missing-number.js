@@ -3,8 +3,10 @@
  * @return {number}
  */
 var missingNumber = function(nums) {
+    let sum = nums.reduce((acc,n) => acc+n);
     let n = nums.length;
-    let sum = nums.reduce((n,s) => n + s,0);
-    let num = Math.floor((n * (n+1)) / 2);
-    return num - sum;
+    let sumOriganal = Math.floor((n * (n+1)) / 2);
+    return sumOriganal - sum;
+    
+    
 };
