@@ -1,8 +1,5 @@
 function singleNumber(nums: number[]): number {
-    let res = nums[0];
-    for(let i = 1; i<nums.length; i++){
-        res ^= nums[i];
-        console.log(res)
-    }
-    return res;
+   let ans = nums[0];
+    nums.map((n,i)=> i > 0 ? ans ^= n : n);
+    return ans;
 };
