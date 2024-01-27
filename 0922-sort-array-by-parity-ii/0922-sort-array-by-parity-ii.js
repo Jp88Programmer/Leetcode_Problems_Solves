@@ -2,23 +2,18 @@
  * @param {number[]} nums
  * @return {number[]}
  */
+function swap(nums,even,odd){
+    [nums[even],nums[odd]] = [nums[odd],nums[even]];
+}
 var sortArrayByParityII = function(nums) {
-    let even = [],odd = [];
-    nums.map(n => {
-        if(n % 2 == 0)
-            even.push(n);
-        else
-            odd.push(n);
-    })
-    
-    let ans = [];
-    let e = 0,o = 0;
-    nums.map((n,i)=>{
-        if(i % 2 == 0)
-            ans.push(even[e++]);
-        else
-            ans.push(odd[o++]);
-    })
-    
-    return ans;
+    let even = 0,odd = 1;
+    let n = nums.length;
+    while(odd < n && even < n){
+        if(nums[even] % 2 == 1){
+            swap(nums,even,odd);
+            odd+=2;
+        }else
+            even+=2;
+    }
+    return nums;
 };
