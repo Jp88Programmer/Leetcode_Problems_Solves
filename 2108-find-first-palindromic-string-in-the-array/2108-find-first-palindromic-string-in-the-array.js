@@ -13,9 +13,7 @@ var isPal = function(str){
 }
 var firstPalindrome = function(words) {
     
-    for(let i = 0; i<words.length; i++){
-        if(isPal(words[i]))
-            return words[i];
-    }
-    return "";
+    for(let w of words)
+        if(w === [...w].reverse().join("")) return w
+    return ""
 };
