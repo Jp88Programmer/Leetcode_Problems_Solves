@@ -16,10 +16,6 @@ var mergeInBetween = function(list1, a, b, list2) {
     let count = 1;
     let firstjoin = null,lastjoin = null;
     let temp = list1;
-    let lastnode = list2;
-    while(lastnode.next){
-        lastnode = lastnode.next;
-    }
     while(count <= b && temp){
         if(count == a)
             firstjoin = temp;
@@ -28,6 +24,9 @@ var mergeInBetween = function(list1, a, b, list2) {
     }
     lastjoin = temp.next;
     firstjoin.next = list2;
-    lastnode.next = lastjoin;
+    while(list2.next){
+        list2 = list2.next;
+    }
+    list2.next = lastjoin;
     return list1;
 };
