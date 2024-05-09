@@ -4,17 +4,10 @@
  * @return {number}
  */
 var maximumHappinessSum = function(hap, k) {
-    
     hap.sort((a,b)=> a - b);
     let i = 0,ans = 0;
     while(i < k){
-        
-        let selectEle = hap[hap.length - 1 - i] - i;
-        if(selectEle > 0){
-            ans += selectEle;
-        }else{
-            break;
-        }
+        ans += Math.max( hap[hap.length - 1 - i] - i,0);
         i++;
     }
     return ans;
