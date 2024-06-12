@@ -5,8 +5,7 @@
 //Insertion Sort 
 var sortColors = function(nums) {
    
-    let two = nums.length - 1;
-    let one = 0,i = 0;
+    let two = nums.length - 1,one = 0,i = 0;
     
     while(one <= two && i <= two){
         if(nums[i] == 0){
@@ -19,15 +18,5 @@ var sortColors = function(nums) {
             two--;
         }
         else if(nums[i] == 1) i++;
-        // console.log(nums)
     }
-    
-    
-    
-    
-    // [1,2,1,0,0,2] 
-    // [1,2,1,0,0,2]
-    // [1,0,1,0,2,2]
-    // [0,0,1,1,2,2]
-    
 };
