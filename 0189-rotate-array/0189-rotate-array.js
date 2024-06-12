@@ -4,7 +4,9 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var rotate = function(nums, k) {
-   const arr = [...nums];
-    arr.map((e,i)=> nums[(i+k) % nums.length] = e);
     
+    let arr = [...nums];
+    for(let i = 0; i<arr.length; i++){
+        nums[(i+k) % arr.length] = arr[i];
+    }
 };
