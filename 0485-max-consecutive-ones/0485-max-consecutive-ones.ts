@@ -1,10 +1,13 @@
 function findMaxConsecutiveOnes(nums: number[]): number {
-   let count = 0,maxCount = 0;
-    nums.map(n => {
-        if(n == 1)
-            maxCount = Math.max(maxCount,++count);
-        else 
-            count = 0;
+   
+    let count = 0,one = 0;
+    nums.map(num => {
+        if(num == 0){
+           one = 0;
+        }else{
+            one++;
+        }
+        count = Math.max(count,one);
     })
-    return maxCount;
+    return count;
 };
