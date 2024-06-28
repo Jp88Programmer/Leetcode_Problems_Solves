@@ -30,20 +30,8 @@ public:
     }
     
     void nextPermutation(vector<int>& nums) {
-        
-        int len = nums.size();
-        int i = len - 2 ;
-        
-        while(i >= 0 && nums[i] >= nums[i+1])
-            --i;
-        
-        if(i < 0)
+        if(!next_permutation(nums.begin(),nums.end())){
             sort(nums.begin(),nums.end());
-            
-        else{
-            int index = binarySearch(nums,i+1,len-1,nums[i]);
-            swap(nums[i],nums[index]);
-            reverse(nums,i+1,len-1);
         }
     }
 };
