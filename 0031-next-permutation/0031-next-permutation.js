@@ -34,10 +34,7 @@ var nextPermutation = function(nums) {
         nums.sort((a,b) => a - b);
     }else{
         let index = binarySearch(nums,key+1,nums.length-1,key);
-        console.log(index);
         [nums[key],nums[index]] = [nums[index],nums[key]];
-        console.log(nums)
         reverseArr(nums,key+1,nums.length-1);
-        console.log(nums)
     }
 };
