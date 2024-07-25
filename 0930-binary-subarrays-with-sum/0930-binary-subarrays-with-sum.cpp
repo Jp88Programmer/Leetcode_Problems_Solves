@@ -1,23 +1,17 @@
 class Solution {
 public:
-    int atMost(vector<int>& nums, int goal){
+    int numSubarraysWithSum(vector<int>& nums, int k) {
         
-        if(goal<0) return 0;
-        
-        int j = 0,res = 0,sum = 0;
-        for(int i = 0; i<nums.size(); i++){
-            sum += nums[i];
-            
-            while(sum > goal){
-                sum -= nums[j++];
+        unordered_map<int,int>m;
+        int sum = 0,ans = 0;
+        m[sum] = 1;
+        for(auto num : nums){
+            sum += num;
+            if(m[sum - k] > 0){
+                ans += m[sum-k];
             }
-            
-            res += i - j + 1;
+            m[sum]++;
         }
-        
-        return res;
-    }
-    int numSubarraysWithSum(vector<int>& nums, int goal) {        
-        return atMost(nums,goal) - atMost(nums,goal-1);
+        return ans;
     }
 };
