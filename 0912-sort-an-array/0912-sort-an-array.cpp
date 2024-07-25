@@ -3,12 +3,9 @@ public:
     void heapify(vector<int>&arr,int n,int i){
         
         if(i >= n) return ;
-        
         int id = i;
-        
         int l = 2 * id + 1;
         int r = 2 * id + 2;
-        
         if(l < n && arr[id] > arr[l])
             id = l;
         
