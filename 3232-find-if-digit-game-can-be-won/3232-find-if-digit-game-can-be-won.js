@@ -14,11 +14,5 @@ var canAliceWin = function(nums) {
         }
     })
     
-    if(sumDigitOne > sumDigitTwo){
-        return true;
-    }else if(sumDigitOne < sumDigitTwo){
-        return true;
-    }
-    return false;
-    
+    return sumDigitOne != sumDigitTwo;
 };
