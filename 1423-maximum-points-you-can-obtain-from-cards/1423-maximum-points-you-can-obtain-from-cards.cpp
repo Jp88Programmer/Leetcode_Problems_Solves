@@ -1,19 +1,21 @@
 class Solution {
 public:
     int maxScore(vector<int>& c, int k) {
-       
-        int j = 0,sum = 0,sum1= 0,count=0,n=c.size(),res = 0;
-        sum = accumulate(c.begin(),c.end(),0);
         
-        for(int i = 0; i<c.size(); i++){
-            sum1 += c[i];
-            count++;
-            while(count > n-k){
-                sum1 -= c[j++];
-                count--;
-            }
-            if(count == n-k) res = max(res,sum - sum1);
+        int n = c.size();
+        int ws = n - k;
+        int wsum = 0,sum = 0;
+        for(int i = 0; i<n; i++) sum += c[i];
+        for(int i =0; i<ws; i++)
+            wsum += c[i];
+        
+        int ans = 0;
+        ans = max(ans,sum - wsum);
+        int j = 0;
+        for(int i = ws; i<n; i++){
+            wsum = wsum + c[i] - c[j++];
+            ans = max(ans,sum - wsum);
         }
-        return res;
+        return ans;
     }
 };
