@@ -5,16 +5,17 @@
  */
 var longestOnes = function(nums, k) {
     
-    let j = 0,ans = 0,zero = 0;
-    for(let i = 0; i<nums.length ; i++){
-        if(nums[i] == 0) zero++;
+    let zero = 0,ans = 0,j = 0;
+    
+    nums.map((num,i) => {
+        if(num == 0)
+            zero++;
         while(zero > k){
-            if(nums[j] == 0){
+            if(nums[j] == 0)
                 zero--;
-            }
             j++;
         }
-        ans = Math.max(ans,i-j+1);
-    }
+        ans = Math.max(ans,i - j + 1);
+    })
     return ans;
 };
