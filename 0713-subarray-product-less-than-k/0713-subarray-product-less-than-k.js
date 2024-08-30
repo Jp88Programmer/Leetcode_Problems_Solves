@@ -6,9 +6,8 @@
 var numSubarrayProductLessThanK = function(nums, k) {
     
     let ans = 0,mul = 1,j = 0;
-    let i = 0;
     if(k <= 0) return 0;
-    for(; i<nums.length; i++){
+    for(let i = 0; i<nums.length; i++){
         let num = nums[i];
         mul *= num;
         while(j < i && mul >= k){
