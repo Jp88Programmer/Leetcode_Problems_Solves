@@ -10,6 +10,7 @@ public:
         }
         return sum;
     }
+    
     int getLucky(string s, int k) {
         
         int sum = 0,p = k;
@@ -18,10 +19,8 @@ public:
             sum += sumDigit(value);
         }
         p--;   
-        cout << sum << endl;
         while(p > 0){
            sum = sumDigit(sum);
-            cout << sum << endl;
            p--;
         }
         return sum;
