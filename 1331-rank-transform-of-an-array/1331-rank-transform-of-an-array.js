@@ -12,5 +12,4 @@ var arrayRankTransform = function(arr) {
     });
     
     return arr.map(e => map.get(e))
-    // return ans;
 };
