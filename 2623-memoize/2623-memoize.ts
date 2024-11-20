@@ -1,20 +1,11 @@
 type Fn = (...params: number[]) => number
 
 function memoize(fn: Fn): Fn {
-    
     let cache = {};
     return function(...args) {
-        // if(Object.keys(cache).length == 0){
-        // // console.log(args.join(""));
-        //     let ans = fn(...args);
-        //     cache[args.join("")] = ans;
-        //     return ans;
-        // }else 
-            
-            if(cache[args.join(",")] != undefined){
+        if(cache[args.join(",")] != undefined){
             return cache[args.join(",")];
         }else{
-            // console.log(cache);
             let ans = fn(...args);
             cache[args.join(",")] = ans;
             return ans;
