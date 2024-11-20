@@ -1,13 +1,13 @@
 function once<T extends (...args: any[]) => any>(fn: T): 
  ((...args: Parameters<T>) => ReturnType<T> | undefined) {
- let flag = 0;
-    return function(...args){
-        // console.log(args)
-        if(flag == 0){
-            flag = 1;
-            return fn(...args);
-        }
-    }
+    let flag = false;
+     return function(...args : any[]){
+         if(!flag){
+             flag = true;
+             return fn(...args);
+         }
+         return undefined;
+     }
 }
 
 /**
