@@ -50,7 +50,7 @@ class Calculator {
      * @return {Calculator}
      */
     power(value) {
-        this.result = this.result ** value;
+        this.result **= value;
         return this;
     }
     
