@@ -12,7 +12,6 @@ var stringMatching = function(words) {
 
             if(words[i].length < words[j].length){
                 if(words[j].includes(words[i]))
-                    // res.push(words[i]);
                     set.add(words[i]);
             }
         }
