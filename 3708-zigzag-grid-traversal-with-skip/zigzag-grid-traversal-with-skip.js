@@ -4,11 +4,10 @@
  */
 var zigzagTraversal = function(grid) {
     
-    let row = 0, j = 0;
-    let m = grid.length; 
-    let n = grid[0].length ;
+    let row = 0,id = 0;
+    let m = grid.length,n = grid[0].length ;
     let res = [];
-    let id = 0;
+    
     while(row < m){
 
         for(let col = 0; col < n; col++){
