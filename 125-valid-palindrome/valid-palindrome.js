@@ -13,11 +13,6 @@ const isPal = function(str) {
     return true;
 }
 var isPalindrome = function(s) {
-    
    const res = (s.match(/[a-zA-Z0-9]/g)|| []).map(str => /[A-Z]/.test(str)? str.toLowerCase(): str).join("");
-//    console.log(res);
-//    res.map(str => (/[A-Z]/).test(str) ?)
-//    const arr = res.map(str => (/[A-Z]/).test(str) ? str.toLowerCase() : str);
-//    console.log(arr);
    return isPal(res);
 };
