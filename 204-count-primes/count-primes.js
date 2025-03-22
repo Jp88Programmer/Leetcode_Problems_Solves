@@ -13,9 +13,5 @@ var countPrimes = function(n) {
         }
     }
 
-    let count = 0;
-    res.map(r => {
-        if(r) count++;
-    })
-    return count;
+    return res.filter(r => r === true).length;
 };
