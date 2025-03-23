@@ -9,9 +9,6 @@ var maxContainers = function(n, w, maxWeight) {
     if(n * n * w <= maxWeight){
         return n * n;
     }
-
-    let we = Math.floor(maxWeight / w);
-
-    return we;
+    return Math.floor(maxWeight / w);
 
 };
