@@ -2,17 +2,21 @@
  * @param {string} s
  * @return {boolean}
  */
-const isPal = function(str) {
-    let start = 0,end = str.length - 1;
-    while(start < end){
-        if(str.charAt(start) !== str.charAt(end))
+function isPal(str,s = 0,e = str?.length-1){
+    let ans = true;
+    if(s <= e){
+        if(str[s] != str[e])
             return false;
-        start++;
-        end--;
+        ans = isPal(str,s+1,e-1);
     }
-    return true;
+    return ans;
+
 }
 var isPalindrome = function(s) {
-   const res = (s.match(/[a-zA-Z0-9]/g)|| []).map(str => /[A-Z]/.test(str)? str.toLowerCase(): str).join("");
-   return isPal(res);
+    
+    let reg = /[a-z|A-Z|0-9]/g;
+    let ans = s.match(reg);
+    ans?.map((a,i) =>{ ans[i] = a.toLowerCase()});
+    console.log(ans?.join(""))
+    return isPal(ans?.join(""));
 };
