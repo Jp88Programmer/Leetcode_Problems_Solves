@@ -2,14 +2,14 @@
  * @param {string} s
  * @return {boolean}
  */
-function isPal(str,s = 0,e = str?.length-1){
-    let ans = true;
-    if(s <= e){
-        if(str[s] != str[e])
+function isPal(str){
+    
+    let s = 0,e = str?.length -1;
+    while(s < e){
+        if(str.charAt(s++) != str.charAt(e--))
             return false;
-        ans = isPal(str,s+1,e-1);
     }
-    return ans;
+    return true;
 
 }
 var isPalindrome = function(s) {
