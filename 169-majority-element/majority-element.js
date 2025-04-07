@@ -3,21 +3,21 @@
  * @return {number}
  */
 var majorityElement = function(nums) {
-    let obj = {};
-    let res = Number.MIN_SAFE_INTEGER;
-    let maj = Math.floor(nums.length/2);
-    nums.map(num => {
-        if(obj[num]){
-            obj[num]++;
-            if(obj[num] > maj){
-                res = Math.max(res,num);
-            }
+    let count = 1;
+    let ans = nums[0];
+
+    for(let i = 1; i<nums.length; i++) {
+        const num = nums[i];
+        if(count == 0){
+            ans = num;
+            count++;
+        }else if(ans == num){
+            count++;
         }else{
-            obj[num] = 1;
-            if(obj[num] > maj){
-                res = Math.max(res,num);
-            }
+            count--;
         }
-    });
-    return res;
+
+    }
+
+    return ans;
 };
