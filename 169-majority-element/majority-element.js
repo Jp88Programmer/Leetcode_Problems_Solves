@@ -19,8 +19,5 @@ var majorityElement = function(nums) {
             }
         }
     });
-
-    console.log(obj);
-
     return res;
 };
