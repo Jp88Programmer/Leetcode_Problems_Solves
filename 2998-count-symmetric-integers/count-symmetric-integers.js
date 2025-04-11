@@ -12,9 +12,7 @@ var countSymmetricIntegers = function(low, high) {
             let sum = 0,sum1 = 0;
             for(let j = 0; j < str.length/2; j++){
                 sum += parseInt(str.charAt(j));
-            }
-             for(let j = str.length/2; j < str.length; j++){
-                sum1 += parseInt(str.charAt(j));
+                sum1 += parseInt(str.charAt(str.length - 1 - j));
             }
             if(sum == sum1)
                 count++;
