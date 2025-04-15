@@ -14,14 +14,13 @@ public:
                     m.erase(s[l]);
                 }
                 l++;
-                res = max(res,(int)m.size());
             }
             
             if(!m[s[i]]){
                 m[s[i]]++;
             }
 
-            res = max(res,(int)m.size());
+            res = max(res,i - l + 1);
         }
 
         return res;
