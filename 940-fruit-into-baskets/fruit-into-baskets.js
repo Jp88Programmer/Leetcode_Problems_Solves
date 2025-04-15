@@ -6,7 +6,7 @@ var totalFruit = function(fruits) {
     
     const map = new Map();
     let ans = 0;
-    let sum = 0,j = 0;
+    let j = 0;
     
     fruits.map((fruit,i) => {
         map.set(fruit,map.has(fruit) ? map.get(fruit) + 1 : 1);
