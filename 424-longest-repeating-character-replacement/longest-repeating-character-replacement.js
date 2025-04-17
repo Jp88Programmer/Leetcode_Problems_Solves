@@ -11,7 +11,7 @@ var maxFreq = function(map){
 var characterReplacement = function(s, k) {
     
     const map = new Array(26).fill(0);
-    let maxFr = 0,j = 0,res = 0;
+    let j = 0,res = 0;
 
     for(let i = 0; i<s.length; i++){
         let st = s.charAt(i);
