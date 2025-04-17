@@ -5,33 +5,28 @@
  */
 
 var maxFreq = function(map){
-
-    let maxfr = 0;
-    for(let [key,value] of map){
-        maxfr = Math.max(value,maxfr);
-    }
-    return maxfr;
+    return Math.max(...map);
+   
 }
 var characterReplacement = function(s, k) {
     
-    const map = new Map();
+    const map = new Array(26).fill(0);
     let maxFr = 0,j = 0,res = 0;
 
     for(let i = 0; i<s.length; i++){
         let st = s.charAt(i);
-
-        map.set(st,map.has(st)? map.get(st) + 1 : 1);
+        // console.log(s.charCodeAt(i));
+        map[s.charCodeAt(i) - 65]++;
         let op = (i - j + 1) - maxFreq(map);
+        // console.log(map)
         while(op > k){
             let sj = s.charAt(j);
-            map.set(sj,map.get(sj) - 1);
-            if(map.get(sj) == 0){
-                map.delete(sj);
-            }
+            map[s.charCodeAt(j) - 65]--;
             j++;
             op = (i - j + 1) - maxFreq(map);
         }
         res = Math.max(res,i - j + 1);
     }
+    
     return res;
 };
