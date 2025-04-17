@@ -15,10 +15,8 @@ var characterReplacement = function(s, k) {
 
     for(let i = 0; i<s.length; i++){
         let st = s.charAt(i);
-        // console.log(s.charCodeAt(i));
         map[s.charCodeAt(i) - 65]++;
         let op = (i - j + 1) - maxFreq(map);
-        // console.log(map)
         while(op > k){
             let sj = s.charAt(j);
             map[s.charCodeAt(j) - 65]--;
