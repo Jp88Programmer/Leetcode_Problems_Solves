@@ -17,11 +17,11 @@ var characterReplacement = function(s, k) {
         let st = s.charAt(i);
         map[s.charCodeAt(i) - 65]++;
         let op = (i - j + 1) - maxFreq(map);
-        while(op > k){
+        if(op > k){
             let sj = s.charAt(j);
             map[s.charCodeAt(j) - 65]--;
             j++;
-            op = (i - j + 1) - maxFreq(map);
+            // op = (i - j + 1) - maxFreq(map);
         }
         res = Math.max(res,i - j + 1);
     }
