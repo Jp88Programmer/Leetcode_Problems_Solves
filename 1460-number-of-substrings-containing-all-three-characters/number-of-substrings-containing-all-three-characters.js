@@ -4,19 +4,19 @@
  */
 var numberOfSubstrings = function(s) {
     
-    let arr = [-1,-1,-1];
-    let ans = 0;
-    
-    s.split("").map((str,i) => {
-        if(str == 'a')
-            arr[0] = i;
-        else if(str == 'b')
-            arr[1] = i;
-        else if(str == 'c')
-            arr[2] = i;
-        if(!arr.includes(-1)){
-            ans += Math.min(...arr) + 1;
+    let a = -1,b = -1, c = -1;
+    res = 0;
+    for(let i = 0; i<s.length; i++){
+        let st = s.charAt(i);
+        if(st == 'a') a = i;
+        else if(st == 'b') b = i;
+        else c = i;
+
+        if(a != -1 && b != -1 && c != -1){
+            res += Math.min(a,b,c) + 1;
         }
-    })
-    return ans;
+    }
+
+    return res;
+     
 };
