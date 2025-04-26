@@ -11,7 +11,6 @@ var findCommonResponse = function(responses) {
         arr.push([...set]);
     }
 
-    // console.log(arr);
     let map = {};
 
     arr.map((a,i) => {
@@ -31,8 +30,5 @@ var findCommonResponse = function(responses) {
         }
         return a[1] > b[1] ? -1 : 1 ;   
     });
-
-    // console.log(res);
-
     return res[0][0];
 };
