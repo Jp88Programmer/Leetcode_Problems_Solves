@@ -3,10 +3,9 @@
  * @return {number}
  */
 var countSubarrays = function(nums) {
-    
-    let k = 3,count = 0;
-    for(let i = 0; i<=nums.length - k; i++){
-        if(nums[i] + nums[i + k -1] == (nums[i+ k -2] / 2)){
+    let count = 0;
+    for(let i = 0; i<nums.length - 2; i++){
+        if(nums[i] + nums[i + 2] == (nums[i + 1] / 2)){
             count++;
         }
     }
