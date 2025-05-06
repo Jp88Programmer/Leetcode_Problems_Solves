@@ -3,25 +3,17 @@
  * @param {number} k
  * @return {number}
  */
-var maxScore = function(cp, k) {
-    let l = cp.length - k;
-    let sum = 0,maxsum = 0;
-    let ts = cp.reduce((s,n) => s + n,0);
-    console.log(ts);
-    for(let i = 0; i < l ; i++){
-        sum += cp[i];
+var maxScore = function(cardPoints, k) {
+    let totalSum = cardPoints.reduce((sum,card) => sum + card,0);
+    let n = cardPoints.length;
+    let sum = 0,res = 0;
+    for(let i = 0; i<(n - k); i++){
+        sum += cardPoints[i];
     }
-
-    maxsum = Math.max(maxsum,ts - sum);
-    // console.log(maxsum);
-
-    let j = 0;
-    for(let i = l; i< cp.length; i++){
-        sum += cp[i] - cp[j++];
-        maxsum = Math.max(maxsum,ts - sum);
-        // console.log(maxsum);
+    res = Math.max(res,totalSum - sum);
+    for(let i = (n-k); i<n; i++){
+        sum += cardPoints[i] - cardPoints[i - (n - k)];
+        res = Math.max(res,totalSum - sum);
     }
-
-    return maxsum;
-
+    return res;
 };
