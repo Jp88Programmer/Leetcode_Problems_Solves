@@ -2,18 +2,7 @@
  * @param {string[]} strs
  * @return {string}
  */
-function comp(s1,s2){
 
-    let i = 0,j = 0;
-    let res = "";
-    while(i < s1.length && j < s2.length){
-        if(s1.charAt(i) == s2.charAt(j)) res += s1.charAt(i);
-        else 
-            break;
-        i++,j++;
-    }
-    return res;
-}
 var longestCommonPrefix = function(strs) {
     
     let pre = strs[0];
