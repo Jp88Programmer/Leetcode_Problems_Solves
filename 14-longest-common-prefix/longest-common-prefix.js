@@ -16,12 +16,18 @@ function comp(s1,s2){
 }
 var longestCommonPrefix = function(strs) {
     
-    let s = strs[0];
+    let pre = strs[0];
+    let preLen = pre.length;
 
     for(let i = 1 ; i<strs.length; i++){
         let str = strs[i];
-        s = comp(s,str);
+        while(pre != str.substr(0,preLen)){
+            preLen--;
+            if(preLen == 0)
+                return "";
+            pre = pre.substr(0,preLen);
+        }
     }
 
-    return s;
+    return pre;
 };
