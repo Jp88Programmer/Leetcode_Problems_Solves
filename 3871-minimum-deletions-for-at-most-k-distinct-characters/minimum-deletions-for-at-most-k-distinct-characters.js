@@ -17,11 +17,9 @@ var minDeletion = function(s, k) {
     let arr = Object.entries(fr).sort((a,b) => a[1] - b[1]);
 
     let rl = arr.length - k;
-
     if(rl <= 0) return 0;
 
     let op = 0;
-
     for(let i = 0; i<rl; i++)
         op += arr[i][1];
 
