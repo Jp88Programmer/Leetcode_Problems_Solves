@@ -5,7 +5,7 @@
  */
 var rotate = function(nums, k) {
     let arr = [...nums];
-    for(let i = 0; i<arr.length; i++){
-        nums[(i+k) % nums.length] = arr[i];
+    for(let i = 0; i<nums.length; i++){
+        nums[(i + k) % nums.length] = arr[i];
     }
 };
