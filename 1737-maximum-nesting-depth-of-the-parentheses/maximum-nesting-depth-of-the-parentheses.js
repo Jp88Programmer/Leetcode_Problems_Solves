@@ -3,8 +3,7 @@
  * @return {number}
  */
 var maxDepth = function(s) {
-    let ans = 0;
-    let count = 0;
+    let ans = 0,count = 0;
     for(let i = 0 ; i<s.length; i++){
         if(s.charAt(i) == "("){
             ans = Math.max(++count,ans);
@@ -13,9 +12,6 @@ var maxDepth = function(s) {
             count--;
         }
     }
-
-    // console.log(count);
-    // ans = Math.max(count,ans);
     return ans;
 
 };
