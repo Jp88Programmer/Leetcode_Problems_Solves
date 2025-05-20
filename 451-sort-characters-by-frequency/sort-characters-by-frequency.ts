@@ -10,7 +10,6 @@ function frequencySort(s: string): string {
     }
 
     let arr = Object.entries(fr).sort((a:any,b:any) => b[1] - a[1]);
-
     let res = "";
 
     for(let i = 0; i<arr.length; i++){
