@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-//Insertion Sort 
+
 var sortColors = function(nums) {
         let s = 0,e = nums.length-1;
         let i = 0;
@@ -17,7 +17,7 @@ var sortColors = function(nums) {
                 e--;
                 
             }
-            else if(nums[i] == 1)
+            else
                 i++;
         }
 };
