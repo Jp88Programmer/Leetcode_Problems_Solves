@@ -1,4 +1,4 @@
-# Write your MySQL query statement below
+-- Write your PostgreSQL query statement below
 SELECT customer_number
 FROM Orders
 GROUP BY customer_number
