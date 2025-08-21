@@ -3,25 +3,6 @@
  * @return {boolean}
  */
 
-function checkTrionic(nums,p,q){
-
-    for(let i = 0; i<p; i++){
-        if(nums[i] > nums[i+1])
-            return false;
-    }
-
-    for(let i = p; i<q; i++){
-        if(nums[i] < nums[i+1])
-            return false;
-    }
-
-    for(let i = q; i<nums.length - 1; i++){
-        if(nums[i] > nums[i+1])
-            return false;
-    }
-
-    return true;
-}
 var isTrionic = function(nums) {
     
     let n = nums.length;
