@@ -1,19 +1,14 @@
 function checkPerfectNumber(num: number): boolean {
     
-    if(num == 1) return false;
-    
-    let divisor = [];
+    if(num <= 1) return false;
 
-    for(let i = 1; i<= Math.sqrt(num); i++){
+    let sum = 1;
+    for(let i = 2; i<= Math.sqrt(num); i++){
         if(num % i == 0){
-            divisor.push(i);
-            if(i != 1 && Math.floor(num/i) != i)
-                divisor.push(Math.floor(num/i));
+            sum += i;
+            if(Math.floor(num/i) != i)
+                sum += Math.floor(num/i);
         }
     }
-
-    console.log(divisor);
-
-    return num == divisor.reduce((sum,d) => sum + d,0);
-
+    return num === sum;
 };
