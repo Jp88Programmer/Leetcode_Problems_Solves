@@ -1,9 +1,7 @@
 function isThree(n: number): boolean {
     
     let count = 0;
-    
     for(let i = 1; i * i <= n; i++){
-
         if(n % i == 0){
             count++;
             if(Math.floor(n/i) != i){
@@ -11,8 +9,5 @@ function isThree(n: number): boolean {
             }
         }
     }
-
-    console.log(count);
-    
     return count == 3;
 };
