@@ -1,1 +1,1 @@
-<h2>three-divisors Notes</h2><hr>[ Time taken: 3 m 16 s ]
+<h2>three-divisors Notes</h2><hr>[ Time taken: 2 m 3 s ]
