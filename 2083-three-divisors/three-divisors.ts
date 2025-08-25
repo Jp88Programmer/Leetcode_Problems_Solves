@@ -1,13 +1,11 @@
 function isThree(n: number): boolean {
-    
-    let count = 0;
-    for(let i = 1; i * i <= n; i++){
-        if(n % i == 0){
-            count++;
-            if(Math.floor(n/i) != i){
-                count++;
-            }
-        }
-    }
-    return count == 3;
+   if(n < 4) return false;
+   let r = Math.floor(Math.sqrt(n));
+   if(r * r < n) return false;
+
+   // to check that r is the prime number or not 
+   for(let i = 2; i * i <= r; i++){
+        if(r % i == 0) return false;
+   }
+   return true;
 };
