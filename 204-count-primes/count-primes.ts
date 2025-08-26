@@ -1,10 +1,10 @@
 function countPrimes(n: number): number {
     let arr = new Array(n).fill(1);
-    for(let i = 2; i < n; i++){
+    for(let i = 2; i * i < n; i++){
         if(arr[i] == 1){
-            for(let j = 2; i * j < n; j++){
-                if(arr[i * j] == 1)
-                    arr[i * j] = 0;
+            for(let j = i * i; j < n; j += i){
+                if(arr[j] == 1)
+                    arr[j] = 0;
             }
         }
     }
