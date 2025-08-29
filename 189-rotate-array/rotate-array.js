@@ -6,6 +6,6 @@
 var rotate = function(nums, k) {
     let arr = [...nums];
     for(let i = 0; i<nums.length; i++){
-        nums[(i + k) % nums.length] = arr[i];
+        nums[(i+k) % nums.length] = arr[i];
     }
 };
