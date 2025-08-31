@@ -1,3 +1,6 @@
 function singleNumber(nums: number[]): number {
-   return nums.reduce((ans,num) => ans ^ num);
+    let xor = 0;
+    for(let i = 0; i<nums.length; i++)
+        xor = xor ^ nums[i];
+    return xor;
 };
