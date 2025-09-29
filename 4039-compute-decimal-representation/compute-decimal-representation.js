@@ -13,6 +13,6 @@ var decimalRepresentation = function(n) {
         }
         mul10 *= 10;
     }
-    res.reverse()
+    res.reverse()   
     return res;
 };
