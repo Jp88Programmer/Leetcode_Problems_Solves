@@ -1,15 +1,18 @@
 function countTriples(n: number): number {
     
-    let count = 0;
+    const arr = new Array(n*n + 1).fill(0);
+
     for(let i = 1; i<=n; i++){
-        for(let j = 1; j<=n ; j++){
-            for(let k = 1; k<=n; k++){
-                if(i != j && j != k){
-                    if(i * i + j * j == k * k)
-                        count++;
-                }
-            }
+        arr[i*i] = 1;
+    }
+
+    let count = 0;
+
+    for(let i = 1; i<=n; i++){
+        for(let j = i; i * i + j * j <= n * n; j++){
+            count += arr[i * i + j * j] * 2;
         }
     }
     return count;
+    
 };
