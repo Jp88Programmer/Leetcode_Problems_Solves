@@ -6,7 +6,7 @@ function memoize(fn) {
     let cache = {};
     return function(...args) {
         let key = args.join("+");
-        if(Object.hasOwn(cache,key)){
+        if(cache.hasOwnProperty(key)){
             return cache[key];
         }else{
             cache[key] = fn(...args);
