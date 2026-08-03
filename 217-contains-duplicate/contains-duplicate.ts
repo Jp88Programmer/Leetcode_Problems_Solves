@@ -1,12 +1,12 @@
 function containsDuplicate(nums: number[]): boolean {
-    let obj = {};
-    for(let i = 0; i<nums.length ; i++){
-        let num = nums[i];
-        if(obj[num]){
+    const map = new Map<number,boolean>();
+    for(let [i,n] of nums.entries()){
+        if(map.has(n)){
             return true;
         }else{
-            obj[num] = 1;
+            map.set(n,true);
         }
     }
     return false;
+    
 };
